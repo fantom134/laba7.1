@@ -21,10 +21,9 @@ jobs:
 
     - name: Restore dependencies
       run: |
-        dotnet restore
-        # или явно:
-        # dotnet restore PO1.csproj
-        # dotnet restore TO1.Tests.csproj
+       
+         dotnet restore PO1.csproj
+         dotnet restore TO1.Tests.csproj
 
     - name: Build
       run: |
