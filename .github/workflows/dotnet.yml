@@ -21,13 +21,22 @@ jobs:
 
     - name: Restore dependencies
       run: |
-        dotnet restore PO1.csproj
-        dotnet restore TO1.Tests.csproj
+        dotnet restore
+        # или явно:
+        # dotnet restore PO1.csproj
+        # dotnet restore TO1.Tests.csproj
 
     - name: Build
       run: |
-        dotnet build PO1.csproj --no-restore --configuration Release
-        dotnet build TO1.Tests.csproj --no-restore --configuration Release
+        dotnet build --configuration Release --no-restore
 
-    - name: Run tests
-      run: dotnet test TO1.Tests.csproj --no-build --verbosity normal
+    - name: Run tests with NUnit
+      run: |
+        # Вариант 1: Простой
+        dotnet test --logger "console;verbosity=normal"
+        
+        # ИЛИ Вариант 2: С явным указанием
+        # dotnet test TO1.Tests.csproj --logger:console
+        
+        # ИЛИ Вариант 3: С NUnit logger
+        # dotnet test --logger:nunit
