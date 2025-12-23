@@ -52,7 +52,7 @@
                 int mid = left + (right - left) / 2;
 
                 MergeSort(mas, left, mid);
-                MergeSort(mas, mid, right);
+                MergeSort(mas, mid + 1, right);
                 Merge(mas, left, mid, right);
             }
         }
@@ -194,3 +194,4 @@
 
 
 }
+
