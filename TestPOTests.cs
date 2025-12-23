@@ -1,7 +1,7 @@
 using ClassFunctions;
 using NUnit.Framework;
 
-namespace ТО1.Tests
+namespace PO1.Tests
 {
     [TestFixture]
     public static class Tests
@@ -248,6 +248,7 @@ namespace ТО1.Tests
         }
 
     }
+
 
 
 }
