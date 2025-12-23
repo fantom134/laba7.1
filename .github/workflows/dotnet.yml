@@ -19,23 +19,6 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    - name: Restore dependencies
+    - name: Build and test
       run: |
-       
-         dotnet restore PO1.csproj
-         dotnet restore TO1.Tests.csproj
-
-    - name: Build
-      run: |
-        dotnet build --configuration Release --no-restore
-
-    - name: Run tests with NUnit
-      run: |
-        # Вариант 1: Простой
-        dotnet test --logger "console;verbosity=normal"
-        
-        # ИЛИ Вариант 2: С явным указанием
-        # dotnet test TO1.Tests.csproj --logger:console
-        
-        # ИЛИ Вариант 3: С NUnit logger
-        # dotnet test --logger:nunit
+        dotnet test TO1.Tests.csproj --configuration Release --verbosity normal
